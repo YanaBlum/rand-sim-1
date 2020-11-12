@@ -23,6 +23,9 @@ const add = function () {
 
 $("#todos").on("click", ".fa-check-circle", function () {
     const id = $(this).closest(".todo").data().id
+    if ($(this).closest(".todo").attr("class") == "todo complete"){
+        $(this).closest(".todo").attr("class", "todo")
+    } 
     $.ajax({
         method: "PUT",
         url: "/todo/" + id,
